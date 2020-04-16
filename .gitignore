@@ -1,0 +1,6 @@
+MusicApi.Api/appsettings.Development.json
+MusicApi.Api/appsettings.json
+MusicApi.Api/obj/
+MusicApi.Core/obj/
+MusicApi.Data/obj/
+MusicApi.Services/obj/

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\MusicApi.Core\MusicApi.Core.csproj" />
+    <ProjectReference Include="..\MusicApi.Services\MusicApi.Services.csproj" />
+    <ProjectReference Include="..\Musicapi.Data\MusicApi.Data.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+
+</Project>

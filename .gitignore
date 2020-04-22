@@ -4,3 +4,9 @@ MusicApi.Api/obj/
 MusicApi.Core/obj/
 MusicApi.Data/obj/
 MusicApi.Services/obj/
+/.vs/MusicApi
+/MusicApi.Api/bin/Debug/netcoreapp3.1
+/MusicApi.Core/bin/Debug/netcoreapp3.1
+/Music.Data/obj
+/MusicApi.Data/bin/Debug/netcoreapp3.1
+/MusicApi.Services/bin/Debug/netcoreapp3.1

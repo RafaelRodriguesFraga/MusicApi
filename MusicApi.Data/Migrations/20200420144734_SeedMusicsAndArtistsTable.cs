@@ -5,7 +5,7 @@ namespace MusicApi.Data.Migrations
     public partial class SeedMusicsAndArtistsTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
+        {           
             migrationBuilder
                .Sql("INSERT INTO Artists (Name) Values ('Linkin Park')");
             migrationBuilder
@@ -28,7 +28,7 @@ namespace MusicApi.Data.Migrations
             migrationBuilder
                 .Sql("INSERT INTO Musics (Name, ArtistId) Values ('The Trooper', (SELECT Id FROM Artists WHERE Name = 'Iron Maiden'))");
             migrationBuilder
-                .Sql("INSERT INTO Musics (Name, ArtistId) Values ('What''s left of the flag', (SELECT Id FROM Artists WHERE Name = 'Flogging Molly'))");
+                .Sql("INSERT INTO Musics (Name, ArtistId) Values ('The Trooper', (SELECT Id FROM Artists WHERE Name = 'Iron Maiden'))");
             migrationBuilder
                 .Sql("INSERT INTO Musics (Name, ArtistId) Values ('Drunken Lullabies', (SELECT Id FROM Artists WHERE Name = 'Flogging Molly'))");
             migrationBuilder

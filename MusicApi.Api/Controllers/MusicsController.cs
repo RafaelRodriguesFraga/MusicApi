@@ -51,7 +51,37 @@ namespace MusicApi.Api.Controllers
             return Ok(musicResource);
         }
 
+        /// <summary>
+        /// Create Music
+        /// </summary>
+        /// <param name="saveMusicResource"></param>
+        /// <returns></returns>
         [HttpPost]
+        public async Task<ActionResult<MusicResource>> CreateMusic([FromBody] SaveMusicResource saveMusicResource)
+        {
+            SaveMusicResourceValidator validator = new SaveMusicResourceValidator();
+            var validationResult = await validator.ValidateAsync(saveMusicResource);
+
+            if (!validationResult.IsValid)
+                return BadRequest(validationResult.Errors);
+
+            Music musicToBeCreated = _mapper.Map<SaveMusicResource, Music>(saveMusicResource);
+            Music newMusic = await _musicService.CreateMusic(musicToBeCreated);
+
+            Music music = await _musicService.GetMusicById(newMusic.Id);
+            var musicResource = _mapper.Map<Music, MusicResource>(music);
+
+            return Ok(musicResource);
+
+        }
+
+        /// <summary>
+        /// Update Music
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="saveMusicResource"></param>
+        /// <returns></returns>
+        [HttpPut]
         public async Task<ActionResult<MusicResource>> UpdateMusic(int id, [FromBody] SaveMusicResource saveMusicResource)
         {
             SaveMusicResourceValidator validator = new SaveMusicResourceValidator();
@@ -74,6 +104,22 @@ namespace MusicApi.Api.Controllers
             var updateMusicResource = _mapper.Map<Music, MusicResource>(updateMusic);
 
             return Ok(updateMusicResource);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteMusic(int id)
+        {
+            if (id == 0)
+                return BadRequest();
+
+            Music music = await _musicService.GetMusicById(id);
+
+            if (music == null)
+                return NotFound();
+
+            await _musicService.DeleteMusic(music);
+
+            return NoContent();
         }
 
     }

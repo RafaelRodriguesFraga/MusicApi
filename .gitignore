@@ -10,3 +10,4 @@ MusicApi.Services/obj/
 /Music.Data/obj
 /MusicApi.Data/bin/Debug/netcoreapp3.1
 /MusicApi.Services/bin/Debug/netcoreapp3.1
+/MusicApi.Api/MusicApi.Api.xml

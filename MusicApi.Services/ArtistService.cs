@@ -13,7 +13,7 @@ namespace MusicApi.Services
         private readonly IUnityOfWork _unityOfWork;
         public ArtistService(IUnityOfWork unityOfWork)
         {
-
+            _unityOfWork = unityOfWork;
         }
 
         public async Task<Artist> CreateArtist(Artist newArtist)
